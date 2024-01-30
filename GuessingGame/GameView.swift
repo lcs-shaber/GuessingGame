@@ -18,7 +18,7 @@ struct GameView: View {
     @State var target = Int.random(in: 1...100)
     
     // Feedback to the user on what to try next
-    @State var feedback = ""
+    @State var feedback =  ""
     
     // The list of numbers the user has guessed so far
     @State var guessesMade: [Int] = []
@@ -95,8 +95,16 @@ struct GameView: View {
         
         // Provide feedback to the user
         // When should they guess higher?
-        // When should then guess lower?
+        // When should they guess lower?
         // FILL IN THIS CODE
+        if target == selectedNumber {
+            feedback = "You have won!!!!"
+        } else if target > selectedNumber {
+            feedback = "Guess higher"
+        } else if target < selectedNumber {
+            feedback = "Guess lower"
+        }
+        
         
         // Save the user's guesses
         guessesMade.append(selectedNumber)
